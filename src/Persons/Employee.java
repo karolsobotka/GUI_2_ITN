@@ -1,6 +1,7 @@
 package Persons;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -12,18 +13,15 @@ public abstract class Employee {
     private String phoneNumber;
     private String pesel;
 
-    public String getLogin() {
-        return login;
-    }
+
 
     private String login;
     private String password;
 
-    public Map<String, String> getEmployeesLoginsMap() {
-        return employeesLoginsMap;
-    }
 
-    public Map<String, String> employeesLoginsMap = new HashMap<String, String>();
+
+    private static ArrayList<Employee> employeeList = new ArrayList<>();
+    public static Map<String, String> employeesLoginsMap = new HashMap<>();
 
     public Employee(String firstName, String lastName, String email, String phoneNumber, String pesel) {
         this.firstName = firstName;
@@ -34,9 +32,18 @@ public abstract class Employee {
         this.login = generateLogin();
         this.password = generatePassword(8);
         this.employeesLoginsMap.put(login, password);
+        employeeList.add(this);
 
     }
 
+
+    public static ArrayList<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public String getLogin() {
+        return login;
+    }
     private String generateLogin(){
         String login = firstName.substring(0,3)+lastName.substring(0,4)+pesel.substring(8,11);
         return login;
@@ -65,6 +72,10 @@ public abstract class Employee {
             }
             return finalPassword;
         }
+
+    public static Map<String, String> getEmployeesLoginsMap() {
+        return employeesLoginsMap;
+    }
 
 
     @Override

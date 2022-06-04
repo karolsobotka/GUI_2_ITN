@@ -1,10 +1,9 @@
 package GUI;
 
 import Logic.Login;
-import Persons.Manager;
-
 import javax.swing.*;
 import java.awt.*;
+
 
 public class LoginScreen extends JFrame {
 
@@ -36,14 +35,15 @@ public class LoginScreen extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         loginButton.addActionListener(e -> {
-           if( Login.login(loginTextField.getText(), passwordTextField.getText())){
+           if(Login.login(loginTextField.getText(), passwordTextField.getText())){
                SwingUtilities.invokeLater(() -> {
-                   ManagementScreen ms = new ManagementScreen();
+                   ManagementScreen ms = new ManagementScreen(Login.isManger(loginTextField.getText()));
                    ms.setVisible(true);
+                   dispose();
                });
 
            }else{
-                JOptionPane.showMessageDialog(this,"Sorry mate");
+                JOptionPane.showMessageDialog(this,"Password or login are incorrect.");
            }
 
         });
@@ -52,11 +52,8 @@ public class LoginScreen extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                LoginScreen ls = new LoginScreen();
-            }
+        SwingUtilities.invokeLater(() -> {
+            LoginScreen ls = new LoginScreen();
         });
     }
 }

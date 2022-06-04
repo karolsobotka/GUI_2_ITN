@@ -1,19 +1,24 @@
 package Logic;
 
 import Persons.Employee;
+import Persons.Manager;
 
 public class Login {
 
-    private static Employee employee;
-
-    public Login(){
-
-    }
-
     public static boolean login(String login, String password){
-        if(employee.getEmployeesLoginsMap().containsKey(login) && employee.employeesLoginsMap.get(login) == password){
+        if(Employee.getEmployeesLoginsMap().containsKey(login) && Employee.getEmployeesLoginsMap().get(login).equals(password)){
             return true;
         }
-        return false;
+        else
+            return false;
+    }
+
+    public static Boolean isManger(String login) {
+       Employee emp =  Employee.getEmployeeList().stream().filter(e  -> login.equals(e.getLogin())).findFirst().orElse(null);
+       if(emp instanceof Manager){
+           return true;
+       }
+       else
+           return false;
     }
 }
