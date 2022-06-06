@@ -34,13 +34,13 @@ public class ManagementScreen extends JFrame {
 
 
     public ManagementScreen(Boolean isManager){
+
+
         getRootPane().setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.GREEN));
         mainContainer.setLayout(new BorderLayout(8,6));
         mainContainer.setBackground(Color.GREEN);
         mainContainer.add(topMenuPanel,BorderLayout.NORTH);
         topMenuPanel.setBackground(Color.YELLOW);
-
-        listaProjektow.setPreferredSize(new Dimension(100,500));
         scrollPaneProjektow.add(listaProjektow);
         mainContainer.add(projectInfoPanel, BorderLayout.CENTER);
         projectInfoPanel.setBackground(Color.RED);
@@ -63,11 +63,19 @@ public class ManagementScreen extends JFrame {
             employeeMenu.add(removeEmployee);
 
             topMenuPanel.add(menuBar);
+
+            for (Project p : Project.getProjectList()) {
+                model.addElement(p);
+            }
         }
 
 
         if(!isManager) {
 
+            for (Project p : Project.getProjectList()) {
+
+                model.addElement(p);
+            }
 
         }
 
