@@ -10,11 +10,12 @@ public class Project {
 
     private String projectName;
     private final static int maxDevelopersAmount = 2;
-    private List<String> commentsList = new ArrayList<>();
+    private List<Comment> commentsList = new ArrayList<>();
     private static List<Project> projectList = new ArrayList<>();
+    private Developer [] devArray;
 
     public Project(){
-
+        devArray = new Developer[maxDevelopersAmount];
     }
 
     public String getProjectName() {
@@ -25,7 +26,7 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public static void addComment(Project project, String comment){
+    public static void addComment(Project project, Comment comment){
         project.commentsList.add(comment);
 
     }
@@ -42,13 +43,6 @@ public class Project {
 
     public static void setProjectList(List<Project> projectList) {
         Project.projectList = projectList;
-    }
-
-    public static void main(String[] args) {
-
-        while(true){
-
-        }
     }
 
     @Override

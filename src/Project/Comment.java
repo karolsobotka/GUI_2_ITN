@@ -18,4 +18,9 @@ public class Comment{
 
 
     }
+
+    @Override
+    public String toString() {
+        return date+" Author:"+author+" Comment:"+comment;
+    }
 }

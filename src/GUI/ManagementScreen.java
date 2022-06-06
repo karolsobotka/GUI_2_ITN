@@ -2,10 +2,10 @@ package GUI;
 
 import Project.Project;
 import Project.ProjectState;
+import Project.Comment;
 
 import javax.swing.*;
 import java.awt.*;
-
 
 
 public class ManagementScreen extends JFrame {
@@ -18,6 +18,8 @@ public class ManagementScreen extends JFrame {
 
     JMenuBar menuBar = new JMenuBar();
     JMenu employeeMenu = new JMenu("Employee");
+    JMenu projectMenu = new JMenu("Project");
+    JMenuItem addProject = new JMenuItem("Add project");
     JMenuItem addEmployee = new JMenuItem("Add Employee");
     JMenuItem removeEmployee = new JMenuItem("Remove Employee");
 
@@ -60,6 +62,7 @@ public class ManagementScreen extends JFrame {
         panelListyProjektow.setLayout(new BorderLayout());
         panelListyProjektow.add(listaProjektow, BorderLayout.NORTH);
         panelListyProjektow.add(filterComboBox, BorderLayout.SOUTH);
+        projectMenu.add(addProject);
 
 
         commentPanel.setBackground(Color.ORANGE);
@@ -90,6 +93,7 @@ public class ManagementScreen extends JFrame {
             menuBar.add(employeeMenu);
             employeeMenu.add(addEmployee);
             employeeMenu.add(removeEmployee);
+            menuBar.add(projectMenu);
 
             topMenuPanel.add(menuBar);
 
@@ -107,6 +111,11 @@ public class ManagementScreen extends JFrame {
             }
 
         }
+        commentButton.addActionListener(e ->{
+                 Comment comment = new Comment( commentArea.getText(), "Autor");
+
+                }
+        );
 
 
 
@@ -120,6 +129,8 @@ public class ManagementScreen extends JFrame {
         setTitle("Management Screen");
 
     }
+
+
 
 
 

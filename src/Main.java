@@ -3,6 +3,7 @@ import Persons.Developer;
 import Persons.Employee;
 import Persons.Manager;
 import Project.Project;
+import Project.Comment;
 
 public class Main {
 
@@ -35,6 +36,9 @@ public class Main {
         Project.getProjectList().add(p2);
         Project.getProjectList().add(p3);
         Project.getProjectList().add(p4);
+
+        Comment c = new Comment("Hejka","Nowak");
+        System.out.println(c);
 
 
 
