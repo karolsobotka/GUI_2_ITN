@@ -31,7 +31,7 @@ public abstract class Employee {
         this.pesel = pesel;
         this.login = generateLogin();
         this.password = generatePassword(8);
-        this.employeesLoginsMap.put(login, password);
+        employeesLoginsMap.put(login, password);
         employeeList.add(this);
 
     }

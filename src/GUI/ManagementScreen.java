@@ -1,11 +1,13 @@
 package GUI;
 
+import Logic.Login;
 import Project.Project;
 import Project.ProjectState;
 import Project.Comment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 
 public class ManagementScreen extends JFrame {
@@ -48,7 +50,6 @@ public class ManagementScreen extends JFrame {
     JTextArea commentListArea = new JTextArea();
 
     public ManagementScreen(Boolean isManager){
-
 
         getRootPane().setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.BLACK));
         mainContainer.setLayout(new BorderLayout(8,6));
@@ -118,6 +119,17 @@ public class ManagementScreen extends JFrame {
         );
 
 
+        Action logout = new AbstractAction()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                dispose();
+                LoginScreen login = new LoginScreen();
+            }
+        };
+
+        InactivityListener listener = new InactivityListener(this, logout, 1);
+        listener.start();
 
 
         setVisible(true);
