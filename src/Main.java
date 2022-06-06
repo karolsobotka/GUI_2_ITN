@@ -18,10 +18,17 @@ public class Main {
         System.out.println(Employee.getEmployeesLoginsMap().get(m.getLogin()));
         System.out.println(Employee.getEmployeesLoginsMap().get(d.getLogin()));
 
+        Project p = new Project();
+        p.setProjectName("hello");
+
+
       LoginScreen ls = new LoginScreen();
 
         Project p1 = new Project();
+        p1.setProjectName("hello1");
+
         Project p2= new Project();
+        p2.setProjectName("hello2");
         Project p3 = new Project();
         Project p4 = new Project();
         Project.getProjectList().add(p1);
