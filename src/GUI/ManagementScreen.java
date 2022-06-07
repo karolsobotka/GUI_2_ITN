@@ -63,6 +63,8 @@ public class ManagementScreen extends JFrame {
         scrollPaneProjektow.add(listaProjektow);
         listaProjektow.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+
+
         mainContainer.add(projectInfoPanel, BorderLayout.CENTER);
         mainContainer.add(commentPanel,BorderLayout.SOUTH);
         mainContainer.add(panelListyProjektow, BorderLayout.WEST);
@@ -98,6 +100,7 @@ public class ManagementScreen extends JFrame {
 
 
 
+
         if(isManager){
             menuBar.add(employeeMenu);
             employeeMenu.add(addEmployee);
@@ -128,22 +131,37 @@ public class ManagementScreen extends JFrame {
             new Thread(() -> {
                 Project.addComment(model.getElementAt(listaProjektow.getSelectedIndex()), new Comment(commentArea.getText(), Login.getLoggedUser().getLogin()));
                 commentListArea.setText("");
+                String str = "";
+                for (Comment c :  model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList()) {
+                    str += c.toString()+"\n";
+                    commentListArea.setText(str);
+                }
                 commentListArea.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList().toString());
                 commentArea.setText("");
-                System.out.println("dodano komentarz o tresci: " + commentArea.getText());
+            }).start();
+        });
 
+
+        if(listaProjektow.getSelectedIndex() == -1){
+            System.out.println("nic nie jest wybrane z listy projektow");
+        }else {
+            new Thread(() -> {
+                Project p = model.getElementAt(listaProjektow.getSelectedIndex());
+                projectName.setText(p.getProjectName());
             }).start();
         }
 
-        );
-//
-//        new Thread(() -> {
-//            Project p = model.getElementAt(listaProjektow.getSelectedIndex());
-//            projectName.setText(p.getProjectName());
-//        }).start();
+        addProject.addActionListener(e -> {
+            NewProjectInfo ns = new NewProjectInfo();
+        });
+
 
         editInfoButton.addActionListener(e -> {
                 InfoEditScreen infoEdit = new InfoEditScreen();
+        });
+
+        addEmployee.addActionListener(e -> {
+            AddNewDev ad = new AddNewDev();
         });
 
 
@@ -155,6 +173,8 @@ public class ManagementScreen extends JFrame {
                 LoginScreen login = new LoginScreen();
             }
         };
+
+
 
         InactivityListener listener = new InactivityListener(this, logout, 1);
         listener.start();
@@ -171,11 +191,8 @@ public class ManagementScreen extends JFrame {
     }
 
 
-
-
-
     public static void main(String[] args) {
-        ManagementScreen ms = new ManagementScreen(false);
+        ManagementScreen ms = new ManagementScreen(true);
     }
 
 

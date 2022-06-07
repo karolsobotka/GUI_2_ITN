@@ -62,6 +62,7 @@ public class InfoEditScreen extends JFrame {
         setPreferredSize(new Dimension(400,400));
         pack();
         setLocationRelativeTo(null);
+        setTitle("Edit Personal Information");
 
     }
 

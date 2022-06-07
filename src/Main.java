@@ -15,6 +15,9 @@ public class Main {
         Developer d = new Developer("Adam", "Developerski","d.loper@o2.pl",
                 "5046242132","99842456621");
 
+        Developer d2 = new Developer("Andrzej", "Nowak","d.loper@o2.pl",
+                "5046242132","99842456621");
+
         System.out.println(m);
         System.out.println(d);
 
@@ -39,8 +42,7 @@ public class Main {
         Project.getProjectList().add(p2);
         Project.getProjectList().add(p3);
         Project.getProjectList().add(p4);
-        Project.addDeveloperToProject(p2,d);
-        Project.addDeveloperToProject(p3,d);
+
 
 
         SwingUtilities.invokeLater(() -> {
