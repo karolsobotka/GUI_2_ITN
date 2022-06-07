@@ -1,6 +1,5 @@
 package GUI;
 
-import Logic.ActuallyLoggedUser;
 import Logic.Login;
 import javax.swing.*;
 import java.awt.*;
@@ -39,8 +38,6 @@ public class LoginScreen extends JFrame {
            if(Login.login(loginTextField.getText(), passwordTextField.getText())){
                SwingUtilities.invokeLater(() -> {
                    ManagementScreen ms = new ManagementScreen(Login.isManger(loginTextField.getText()));
-                   ActuallyLoggedUser.getInstance(loginTextField.getText());
-                   ms.setVisible(true);
                    dispose();
                });
 

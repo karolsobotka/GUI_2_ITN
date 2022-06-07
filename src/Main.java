@@ -5,6 +5,8 @@ import Persons.Manager;
 import Project.Project;
 import Project.Comment;
 
+import javax.swing.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,22 +25,30 @@ public class Main {
         p.setProjectName("hello");
 
 
-      LoginScreen ls = new LoginScreen();
 
         Project p1 = new Project();
         p1.setProjectName("hello1");
-
         Project p2= new Project();
         p2.setProjectName("hello2");
         Project p3 = new Project();
+        p3.setProjectName("hello3");
         Project p4 = new Project();
+        p4.setProjectName("hello4");
+
         Project.getProjectList().add(p1);
         Project.getProjectList().add(p2);
         Project.getProjectList().add(p3);
         Project.getProjectList().add(p4);
+        Project.addDeveloperToProject(p2,d);
+        Project.addDeveloperToProject(p3,d);
 
-        Comment c = new Comment("Hejka","Nowak");
-        System.out.println(c);
+
+        SwingUtilities.invokeLater(() -> {
+            LoginScreen ls = new LoginScreen();
+
+        });
+
+
 
 
 

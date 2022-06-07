@@ -12,14 +12,8 @@ public abstract class Employee {
     private String email;
     private String phoneNumber;
     private String pesel;
-
-
-
     private String login;
     private String password;
-
-
-
     private static ArrayList<Employee> employeeList = new ArrayList<>();
     public static Map<String, String> employeesLoginsMap = new HashMap<>();
 
@@ -72,6 +66,26 @@ public abstract class Employee {
             }
             return finalPassword;
         }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
 
     public static Map<String, String> getEmployeesLoginsMap() {
         return employeesLoginsMap;

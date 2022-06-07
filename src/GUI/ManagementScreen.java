@@ -1,13 +1,16 @@
 package GUI;
 
 import Logic.Login;
+import Persons.Developer;
 import Project.Project;
 import Project.ProjectState;
 import Project.Comment;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.function.Predicate;
 
 
 public class ManagementScreen extends JFrame {
@@ -28,8 +31,8 @@ public class ManagementScreen extends JFrame {
     JPanel panelListyProjektow = new JPanel();
     JScrollPane scrollPaneProjektow = new JScrollPane();
     JPanel decisionPanel = new JPanel();
-    DefaultListModel<Project> model = new DefaultListModel<>();
-    JList listaProjektow = new JList(model);
+   DefaultListModel<Project> model = new DefaultListModel<>();
+    JList <Project> listaProjektow = new JList(model);
     JComboBox filterComboBox = new JComboBox(ProjectState.values());
     JLabel whatToDo = new JLabel("What you want to do with project?");
     JRadioButton startJob = new JRadioButton("Start job on the project");
@@ -48,6 +51,7 @@ public class ManagementScreen extends JFrame {
 
     JLabel commentsLabel = new JLabel("Comments:");
     JTextArea commentListArea = new JTextArea();
+    JButton editInfoButton = new JButton("Edit Info");
 
     public ManagementScreen(Boolean isManager){
 
@@ -57,11 +61,14 @@ public class ManagementScreen extends JFrame {
         mainContainer.add(topMenuPanel,BorderLayout.NORTH);
         topMenuPanel.setBackground(Color.YELLOW);
         scrollPaneProjektow.add(listaProjektow);
+        listaProjektow.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
         mainContainer.add(projectInfoPanel, BorderLayout.CENTER);
         mainContainer.add(commentPanel,BorderLayout.SOUTH);
         mainContainer.add(panelListyProjektow, BorderLayout.WEST);
         panelListyProjektow.setLayout(new BorderLayout());
         panelListyProjektow.add(listaProjektow, BorderLayout.NORTH);
+
         panelListyProjektow.add(filterComboBox, BorderLayout.SOUTH);
         projectMenu.add(addProject);
 
@@ -82,6 +89,7 @@ public class ManagementScreen extends JFrame {
         projectInfoPanel.add(statusField);
         projectInfoPanel.add(commentsLabel);
         projectInfoPanel.add(commentListArea);
+        projectInfoPanel.add(editInfoButton);
         decisionPanel.setLayout(new GridLayout(3,0));
         decisionPanel.add(whatToDo);
         decisionPanel.add(startJob);
@@ -107,16 +115,36 @@ public class ManagementScreen extends JFrame {
         if(!isManager) {
             projectInfoPanel.add(decisionPanel);
             for (Project p : Project.getProjectList()) {
+                for (Developer d: p.getDevArray()) {
+                    if(d == Login.getLoggedUser()){
+                        model.addElement(p);
+                    }
+                }
 
-                model.addElement(p);
             }
 
         }
-        commentButton.addActionListener(e ->{
-                 Comment comment = new Comment( commentArea.getText(), "Autor");
+        commentButton.addActionListener(e -> {
+            new Thread(() -> {
+                Project.addComment(model.getElementAt(listaProjektow.getSelectedIndex()), new Comment(commentArea.getText(), Login.getLoggedUser().getLogin()));
+                commentListArea.setText("");
+                commentListArea.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList().toString());
+                commentArea.setText("");
+                System.out.println("dodano komentarz o tresci: " + commentArea.getText());
 
-                }
+            }).start();
+        }
+
         );
+//
+//        new Thread(() -> {
+//            Project p = model.getElementAt(listaProjektow.getSelectedIndex());
+//            projectName.setText(p.getProjectName());
+//        }).start();
+
+        editInfoButton.addActionListener(e -> {
+                InfoEditScreen infoEdit = new InfoEditScreen();
+        });
 
 
         Action logout = new AbstractAction()
@@ -147,7 +175,7 @@ public class ManagementScreen extends JFrame {
 
 
     public static void main(String[] args) {
-        ManagementScreen ms = new ManagementScreen(true);
+        ManagementScreen ms = new ManagementScreen(false);
     }
 
 

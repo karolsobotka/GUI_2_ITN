@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c34a644-bc33-46b1-bd58-1b465843ce83" name="Changes" comment="Changes in project." />
+    <list default="true" id="5c34a644-bc33-46b1-bd58-1b465843ce83" name="Changes" comment="progress with view of Management Window.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/InfoEditScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/InfoEditScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ManagementScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/ActuallyLoggedUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persons/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persons/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project/Project.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,20 +44,21 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
 }</component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="ActivityLog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ActivityLog.ActivityLog" />
+    <configuration name="InfoEditScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.InfoEditScreen" />
       <module name="GUI_2_ITN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ActivityLog.*" />
+          <option name="PATTERN" value="GUI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -53,25 +66,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI.LoginScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.LoginScreen" />
       <module name="GUI_2_ITN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUI.ManagementScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.ManagementScreen" />
-      <module name="GUI_2_ITN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Logic.*" />
+          <option name="PATTERN" value="GUI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,12 +86,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ManagementScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.ManagementScreen" />
+      <module name="GUI_2_ITN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Project" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Project.Project" />
+      <module name="GUI_2_ITN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GUI.LoginScreen" />
-        <item itemvalue="Application.GUI.ManagementScreen" />
-        <item itemvalue="Application.ActivityLog" />
+        <item itemvalue="Application.ManagementScreen" />
+        <item itemvalue="Application.LoginScreen" />
+        <item itemvalue="Application.InfoEditScreen" />
+        <item itemvalue="Application.Project" />
       </list>
     </recent_temporary>
   </component>
@@ -104,30 +131,32 @@
       <option name="presentableId" value="Default" />
       <updated>1653677708639</updated>
       <workItem from="1653677709949" duration="64000" />
-      <workItem from="1653928741793" duration="5926000" />
-      <workItem from="1654543208294" duration="189000" />
-      <workItem from="1654543413258" duration="8073000" />
+      <workItem from="1653928741793" duration="7124000" />
+      <workItem from="1654106473410" duration="187000" />
+      <workItem from="1654337639737" duration="16432000" />
+      <workItem from="1654374414417" duration="168000" />
+      <workItem from="1654535407681" duration="5258000" />
     </task>
-    <task id="LOCAL-00001" summary="further changes in management screen.">
-      <created>1654545672167</created>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1653934753123</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1654545672167</updated>
+      <updated>1653934753123</updated>
     </task>
-    <task id="LOCAL-00002" summary="Adding logic to project.">
-      <created>1654552593134</created>
+    <task id="LOCAL-00002" summary="Initial Commit">
+      <created>1654374537082</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1654552593134</updated>
+      <updated>1654374537082</updated>
     </task>
-    <task id="LOCAL-00003" summary="Changes in project.">
-      <created>1654557693309</created>
+    <task id="LOCAL-00003" summary="progress with view of Management Window.">
+      <created>1654542301099</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1654557693309</updated>
+      <updated>1654542301099</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
@@ -147,9 +176,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="further changes in management screen." />
-    <MESSAGE value="Adding logic to project." />
-    <MESSAGE value="Changes in project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes in project." />
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="progress with view of Management Window." />
+    <option name="LAST_COMMIT_MESSAGE" value="progress with view of Management Window." />
   </component>
 </project>

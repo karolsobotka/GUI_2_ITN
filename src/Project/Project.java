@@ -10,9 +10,20 @@ public class Project {
 
     private String projectName;
     private final static int maxDevelopersAmount = 2;
+
+
+    public List<Comment> getCommentsList() {
+        return commentsList;
+    }
+
     private List<Comment> commentsList = new ArrayList<>();
     private static List<Project> projectList = new ArrayList<>();
-    private Developer [] devArray;
+
+    public Developer[] getDevArray() {
+        return devArray;
+    }
+
+    private static Developer [] devArray;
 
     public Project(){
         devArray = new Developer[maxDevelopersAmount];
@@ -30,7 +41,15 @@ public class Project {
         project.commentsList.add(comment);
 
     }
+
     public static void addDeveloperToProject(Project project, Developer developer){
+
+        for (int i = 0; i < devArray.length; i++) {
+            if(devArray[i] != null){
+
+            }
+
+        }
 
     }
     public static void createNewProject(String name){
