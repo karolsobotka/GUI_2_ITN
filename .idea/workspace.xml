@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c34a644-bc33-46b1-bd58-1b465843ce83" name="Changes" comment="Adding logic to project.">
-      <change afterPath="$PROJECT_DIR$/src/GUI/InactivityListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Logic/ActuallyLoggedUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoginScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ManagementScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persons/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persons/Employee.java" afterDir="false" />
-    </list>
+    <list default="true" id="5c34a644-bc33-46b1-bd58-1b465843ce83" name="Changes" comment="Changes in project." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +106,7 @@
       <workItem from="1653677709949" duration="64000" />
       <workItem from="1653928741793" duration="5926000" />
       <workItem from="1654543208294" duration="189000" />
-      <workItem from="1654543413258" duration="8037000" />
+      <workItem from="1654543413258" duration="8073000" />
     </task>
     <task id="LOCAL-00001" summary="further changes in management screen.">
       <created>1654545672167</created>
@@ -129,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654552593134</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changes in project.">
+      <created>1654557693309</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654557693309</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="further changes in management screen." />
     <MESSAGE value="Adding logic to project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding logic to project." />
+    <MESSAGE value="Changes in project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in project." />
   </component>
 </project>
