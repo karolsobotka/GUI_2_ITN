@@ -42,6 +42,8 @@ public class Main {
         Project.getProjectList().add(p2);
         Project.getProjectList().add(p3);
         Project.getProjectList().add(p4);
+        Project.addDeveloperToProject(p1,d);
+        Project.addDeveloperToProject(p2,d2);
 
 
 

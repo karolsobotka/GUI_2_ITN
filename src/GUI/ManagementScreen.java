@@ -8,10 +8,10 @@ import Project.Comment;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
-import java.util.function.Predicate;
 
+import static Project.ProjectState.ACTIVE;
+import static Project.ProjectState.FINISHED;
 
 public class ManagementScreen extends JFrame {
     Container mainContainer = getContentPane();
@@ -33,6 +33,7 @@ public class ManagementScreen extends JFrame {
     JPanel decisionPanel = new JPanel();
    DefaultListModel<Project> model = new DefaultListModel<>();
     JList <Project> listaProjektow = new JList(model);
+    static Project selectedProject;
     JComboBox filterComboBox = new JComboBox(ProjectState.values());
     JLabel whatToDo = new JLabel("What you want to do with project?");
     JRadioButton startJob = new JRadioButton("Start job on the project");
@@ -53,6 +54,10 @@ public class ManagementScreen extends JFrame {
     JTextArea commentListArea = new JTextArea();
     JButton editInfoButton = new JButton("Edit Info");
 
+    public static Project getSelectedProject() {
+        return selectedProject;
+    }
+
     public ManagementScreen(Boolean isManager){
 
         getRootPane().setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.BLACK));
@@ -64,7 +69,6 @@ public class ManagementScreen extends JFrame {
         listaProjektow.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 
-
         mainContainer.add(projectInfoPanel, BorderLayout.CENTER);
         mainContainer.add(commentPanel,BorderLayout.SOUTH);
         mainContainer.add(panelListyProjektow, BorderLayout.WEST);
@@ -74,6 +78,7 @@ public class ManagementScreen extends JFrame {
         panelListyProjektow.add(filterComboBox, BorderLayout.SOUTH);
         projectMenu.add(addProject);
 
+        commentListArea.setEditable(false);
 
         commentPanel.setBackground(Color.ORANGE);
         commentArea.setPreferredSize(new Dimension(800,100));
@@ -84,11 +89,14 @@ public class ManagementScreen extends JFrame {
         projectInfoPanel.add(projectName);
         projectName.setEditable(false);
         projectInfoPanel.add(developersCountLabel);
+        developersCountField.setEditable(false);
         projectInfoPanel.add(developersCountField);
         projectInfoPanel.add(descriptionLabel);
+        projectDescriptionField.setEditable(false);
         projectInfoPanel.add(projectDescriptionField);
         projectInfoPanel.add(statusLabel);
         projectInfoPanel.add(statusField);
+        statusField.setEditable(false);
         projectInfoPanel.add(commentsLabel);
         projectInfoPanel.add(commentListArea);
         projectInfoPanel.add(editInfoButton);
@@ -133,7 +141,7 @@ public class ManagementScreen extends JFrame {
                 commentListArea.setText("");
                 String str = "";
                 for (Comment c :  model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList()) {
-                    str += c.toString()+"\n";
+                    str += "\n"+c.toString()+"\n";
                     commentListArea.setText(str);
                 }
                 commentListArea.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList().toString());
@@ -142,14 +150,17 @@ public class ManagementScreen extends JFrame {
         });
 
 
-        if(listaProjektow.getSelectedIndex() == -1){
-            System.out.println("nic nie jest wybrane z listy projektow");
-        }else {
+        listaProjektow.addListSelectionListener(e -> {
             new Thread(() -> {
+                selectedProject = model.getElementAt(listaProjektow.getSelectedIndex());
                 Project p = model.getElementAt(listaProjektow.getSelectedIndex());
                 projectName.setText(p.getProjectName());
+                statusField.setText(p.getProjectState().toString());
+                commentListArea.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList().toString());
+                developersCountField.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getCommentsList().toString());
             }).start();
-        }
+
+        });
 
         addProject.addActionListener(e -> {
             NewProjectInfo ns = new NewProjectInfo();
@@ -164,6 +175,21 @@ public class ManagementScreen extends JFrame {
             AddNewDev ad = new AddNewDev();
         });
 
+        executeJob.addActionListener(e -> {
+           if(startJob.isSelected()){
+               selectedProject.setProjectState(ACTIVE);
+               statusField.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getProjectState().toString());
+
+           }
+           else if(endJob.isSelected()){
+               selectedProject.setProjectState(FINISHED);
+               statusField.setText(model.getElementAt(listaProjektow.getSelectedIndex()).getProjectState().toString());
+
+           }
+           else
+               JOptionPane.showMessageDialog(this,"Choose what to do with project!");
+
+        });
 
         Action logout = new AbstractAction()
         {
@@ -173,6 +199,8 @@ public class ManagementScreen extends JFrame {
                 LoginScreen login = new LoginScreen();
             }
         };
+
+
 
 
 

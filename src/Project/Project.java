@@ -48,16 +48,12 @@ public class Project {
     }
 
     public static void addDeveloperToProject(Project project, Developer developer){
-        System.out.println(project.getDevArray());
         Developer [] projectsArrayofDevs =  project.getDevArray();
-        if(projectsArrayofDevs.length == 0){
+        if(projectsArrayofDevs[0] == null && projectsArrayofDevs[1] == null){
            projectsArrayofDevs[0] = developer;
-            System.out.println("dodano deva 1");
         }
-        if(projectsArrayofDevs.length == 1){
+        else if(projectsArrayofDevs[0] != null && projectsArrayofDevs[1] == null){
             projectsArrayofDevs[1] = developer;
-            System.out.println("dodano deva 2");
-
         }
         else
             System.out.println("too much devs on project");
@@ -82,4 +78,6 @@ public class Project {
     public String toString() {
         return projectName;
     }
+
+
 }

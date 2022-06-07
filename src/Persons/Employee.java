@@ -87,6 +87,26 @@ public abstract class Employee {
         return pesel;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
     public static Map<String, String> getEmployeesLoginsMap() {
         return employeesLoginsMap;
     }

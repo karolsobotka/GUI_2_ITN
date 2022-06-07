@@ -21,7 +21,7 @@ public class AddNewDev extends JFrame {
 
 
         addDevButton.addActionListener(e -> {
-            //Project.addDeveloperToProject( , model.getElementAt(jListDevs.getSelectedIndex() );
+            Project.addDeveloperToProject( ManagementScreen.getSelectedProject(), model.getElementAt(jListDevs.getSelectedIndex()));
 
         });
         setLayout(new GridLayout());

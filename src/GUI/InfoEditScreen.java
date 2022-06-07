@@ -1,6 +1,7 @@
 package GUI;
 
 import Logic.Login;
+import Persons.Employee;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +25,7 @@ public class InfoEditScreen extends JFrame {
     private JTextField peselField = new JTextField();
     private JTextField peselFieldOLD = new JTextField();
     private JButton confirmButton = new JButton("CONFIRM");
+    Employee loggedUser = Login.getLoggedUser();
 
 
     public InfoEditScreen() {
@@ -56,7 +58,17 @@ public class InfoEditScreen extends JFrame {
         add(confirmButton);
 
         confirmButton.addActionListener(e -> {
+          loggedUser.setFirstName(fnameField.getText());
+          loggedUser.setLastName(lnameField.getText());
+          loggedUser.setEmail(emailField.getText());
+          loggedUser.setPesel(peselField.getText());
+          loggedUser.setPhoneNumber(phoneNumberField.getText());
 
+          fnameFieldOLD.setText(fnameField.getText());
+          lnameFieldOLD.setText(lnameFieldOLD.getText());
+          emailFieldOLD.setText(emailField.getText());
+          peselFieldOLD.setText(peselField.getText());
+          phoneNumberFieldOLD.setText(phoneNumberField.getText());
         });
         setVisible(true);
         setPreferredSize(new Dimension(400,400));
